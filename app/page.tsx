@@ -1,65 +1,69 @@
-import Image from "next/image";
+import { CalcCard } from './components/ui/CalcCard'
+import { Landmark, PiggyBank, Apple, Zap, HardHat, Car } from 'lucide-react'
+
+const calculadoras = [
+  {
+    title: 'Calculadora de Préstamos',
+    description: 'Calcula tu cuota mensual, intereses totales y tabla de amortización de cualquier préstamo.',
+    href: '/calculadoras/prestamos',
+    icon: Landmark,
+    color: 'text-blue-600',
+    bgColor: 'bg-blue-50',
+  },
+  {
+    title: 'Calculadora de Ahorro',
+    description: 'Proyecta tu ahorro con interés compuesto y descubre cuánto tendrás en el futuro.',
+    href: '/calculadoras/ahorro',
+    icon: PiggyBank,
+    color: 'text-green-600',
+    bgColor: 'bg-green-50',
+  },
+  {
+    title: 'Calculadora de Calorías',
+    description: 'Calcula tus calorías diarias según tu peso, altura, edad y nivel de actividad física.',
+    href: '/calculadoras/calorias',
+    icon: Apple,
+    color: 'text-orange-600',
+    bgColor: 'bg-orange-50',
+  },
+  {
+    title: 'Consumo Eléctrico',
+    description: 'Estima el costo de electricidad de tus aparatos y reduce tu factura mensual.',
+    href: '/calculadoras/electricidad',
+    icon: Zap,
+    color: 'text-yellow-600',
+    bgColor: 'bg-yellow-50',
+  },
+  
+  {
+    title: 'Consumo de gasolina',
+    description: 'Calcula kilometros por litro, por galon, etc',
+    href: '/calculadoras/gasolina',
+    icon: Car,
+    color: 'text-rose-600',
+    bgColor: 'bg-rose-50',
+  },
+]
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+    <div className="max-w-6xl mx-auto px-4 py-16">
+      {/* Hero */}
+      <div className="text-center mb-16">
+        <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+          Calculadoras <span className="text-blue-600">Online Gratis</span>
+        </h1>
+        <p className="text-slate-500 text-lg max-w-xl mx-auto">
+          Herramientas sencillas y precisas para tomar mejores decisiones financieras, de salud y construcción.
+        </p>
+      </div>
+
+      {/* Grid de calculadoras */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {calculadoras.map((calc) => (
+          <CalcCard key={calc.href} {...calc} />
+        ))}
+      </div>
     </div>
-  );
+  )
 }
