@@ -5,7 +5,7 @@ import { Header } from './components/layout/Header'
 
 const inter = Inter({ subsets: ['latin'] })
 
-const BASE_URL = 'https://tudominio.com' // ← cambia por tu dominio real
+const BASE_URL = 'https://calcopolis.netlify.app' // ← cambia por tu dominio real
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),

@@ -12,11 +12,11 @@ export const metadata: Metadata = {
     'calculadora de prestamos', 'cuota mensual', 'tabla de amortizacion',
     'calculo de intereses', 'prestamo personal', 'credito hipotecario',
   ],
-  alternates: { canonical: 'https://tudominio.com/calculadoras/prestamos' },
+  alternates: { canonical: 'https://calcopolis.netlify.app/calculadoras/prestamos' },
   openGraph: {
     title: 'Calculadora de Préstamos — Cuota y Amortización',
     description: 'Calcula tu cuota mensual e intereses totales de cualquier préstamo.',
-    url: 'https://tudominio.com/calculadoras/prestamos',
+    url: 'https://calcopolis.netlify.app/calculadoras/prestamos',
     images: [{
       url: `/og?title=Calculadora de Préstamos&desc=Cuota mensual e intereses`,
       width: 1200,
@@ -32,7 +32,7 @@ export default function PrestamosPage() {
       <WebAppSchema
         name="Calculadora de Préstamos"
         description="Calcula tu cuota mensual e intereses totales de cualquier préstamo."
-        url="https://tudominio.com/calculadoras/prestamos"
+        url="https://calcopolis.netlify.app/calculadoras/prestamos"
       />
       <div className="max-w-5xl mx-auto px-4 py-10">
         {/* Encabezado */}

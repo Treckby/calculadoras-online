@@ -11,11 +11,11 @@ export const metadata: Metadata = {
     'calculadora de ahorro', 'interes compuesto', 'proyeccion de ahorro',
     'ahorro mensual', 'simulador de ahorro', 'rendimiento de inversión',
   ],
-  alternates: { canonical: 'https://tudominio.com/calculadoras/ahorro' },
+  alternates: { canonical: 'https://calcopolis.netlify.app/calculadoras/ahorro' },
   openGraph: {
     title: 'Calculadora de Ahorro con Interés Compuesto',
     description: 'Descubre cuánto crecerá tu ahorro con interés compuesto mes a mes.',
-    url: 'https://tudominio.com/calculadoras/ahorro',
+    url: 'https://calcopolis.netlify.app/calculadoras/ahorro',
       images: [{
     url: `/og?title=Calculadora de Ahorro con Interés Compuesto&desc=Descubre cuánto crecerá tu ahorro con interés`,
     width: 1200,
@@ -30,7 +30,7 @@ export default function AhorroPage() {
       <WebAppSchema
         name="Calculadora de Ahorro con Interés Compuesto'"
         description="Calcula tu cuota mensual e intereses de cualquier préstamo."
-        url="https://tudominio.com/calculadoras/prestamos"
+        url="https://calcopolis.netlify.app/calculadoras/prestamos"
       />
       <div className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-2">

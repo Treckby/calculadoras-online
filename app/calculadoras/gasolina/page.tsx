@@ -11,11 +11,11 @@ export const metadata: Metadata = {
     'calculadora gasolina', 'gasto en gasolina', 'rendimiento de auto',
     'precio gasolina mexico', 'km por litro', 'cuanto gasto en gasolina',
   ],
-  alternates: { canonical: 'https://tudominio.com/calculadoras/gasolina' },
+  alternates: { canonical: 'https://calcopolis.netlify.app/calculadoras/gasolina' },
   openGraph: {
     title: 'Calculadora de Gasto en Gasolina',
     description: 'Calcula tu gasto mensual en combustible y cuánto podrías ahorrar.',
-    url: 'https://tudominio.com/calculadoras/gasolina',
+    url: 'https://calcopolis.netlify.app/calculadoras/gasolina',
       images: [{
     url: `/og?title=Calculadora de Gasto en Gasolina&desc=Calcula tu gasto mensual en combustible`,
     width: 1200,
@@ -30,7 +30,7 @@ export default function GasolinaPage() {
       <WebAppSchema
         name="Calculadora de Gasto en Gasolina"
         description="Calcula tu gasto mensual en combustible y cuánto podrías ahorrar."
-        url="https://tudominio.com/calculadoras/prestamos"
+        url="https://calcopolis.netlify.app/calculadoras/prestamos"
       />
     <div className="max-w-5xl mx-auto px-4 py-10">
       <div className="flex items-center gap-3 mb-2">

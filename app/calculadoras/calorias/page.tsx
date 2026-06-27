@@ -11,11 +11,11 @@ export const metadata: Metadata = {
     'calculadora de calorias', 'tmb', 'tdee', 'macronutrientes',
     'perder peso', 'ganar musculo', 'dieta', 'imc',
   ],
-  alternates: { canonical: 'https://tudominio.com/calculadoras/calorias' },
+  alternates: { canonical: 'https://calcopolis.netlify.app/calculadoras/calorias' },
   openGraph: {
     title: 'Calculadora de Calorías y Macronutrientes',
     description: 'Calcula tu TMB, TDEE y macros diarios según tu cuerpo y objetivo.',
-    url: 'https://tudominio.com/calculadoras/calorias',
+    url: 'https://calcopolis.netlify.app/calculadoras/calorias',
       images: [{
     url: `/og?title=Calculadora de Calorías y Macronutrientes&desc=Calcula tu TMB, TDEE`,
     width: 1200,
@@ -30,7 +30,7 @@ export default function CaloriasPage() {
       <WebAppSchema
         name="Calculadora de Calorías y Macronutrientes"
         description="Calculadora de Calorías y Macronutrientes."
-        url="https://tudominio.com/calculadoras/prestamos"
+        url="https://calcopolis.netlify.app/calculadoras/prestamos"
       />
     <div className="max-w-5xl mx-auto px-4 py-10">
       <div className="flex items-center gap-3 mb-2">

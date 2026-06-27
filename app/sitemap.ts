@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next'
 
-const BASE_URL = 'https://tudominio.com'
+const BASE_URL = 'https://calcopolis.netlify.app'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const calculadoras = [

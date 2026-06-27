@@ -11,11 +11,11 @@ export const metadata: Metadata = {
     'calculadora consumo electrico', 'factura cfe', 'kwh', 'tarifa electrica',
     'consumo de luz', 'ahorro energia', 'costo electricidad mexico',
   ],
-  alternates: { canonical: 'https://tudominio.com/calculadoras/electricidad' },
+  alternates: { canonical: 'https://calcopolis.netlify.app/calculadoras/electricidad' },
   openGraph: {
     title: 'Calculadora de Consumo Eléctrico — Factura CFE',
     description: 'Calcula cuánto gastan tus aparatos y estima tu factura mensual de CFE.',
-    url: 'https://tudominio.com/calculadoras/electricidad',
+    url: 'https://calcopolis.netlify.app/calculadoras/electricidad',
       images: [{
     url: `/og?title=Calculadora de Consumo Eléctrico — Factura CFE&desc=Calcula cuánto gastan tus aparatos`,
     width: 1200,
@@ -30,7 +30,7 @@ export default function ElectricidadPage() {
       <WebAppSchema
         name="Calculadora de Consumo Electrico"
         description="Calcula cuánto gastan tus aparatos y estima tu factura mensual de CFE."
-        url="https://tudominio.com/calculadoras/prestamos"
+        url="https://calcopolis.netlify.app/calculadoras/prestamos"
       />
     <div className="max-w-5xl mx-auto px-4 py-10">
       <div className="flex items-center gap-3 mb-2">

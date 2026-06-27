@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://tudominio.com/sitemap.xml',
+    sitemap: 'https://calcopolis.netlify.app/sitemap.xml',
   }
 }

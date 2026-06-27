@@ -34,7 +34,7 @@ export function OrganizationSchema() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'CalcFácil',
-    url: 'https://tudominio.com',
+    url: 'https://calcopolis.netlify.app',
     description: 'Calculadoras online gratuitas en español',
   }
 
