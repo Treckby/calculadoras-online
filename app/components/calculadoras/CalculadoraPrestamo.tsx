@@ -8,6 +8,10 @@ import { ResultCard } from '../../components/ui/ResultCard'
 import { calcularPrestamo } from '../../lib/calculadoras/prestamo'
 import { PrestamoResultado } from '../../types'
 import { formatCurrency, formatNumber } from '../../lib/utils'
+import { TooltipProps } from 'recharts';
+
+const customFormatter: TooltipProps['formatter'] = (value) =>
+  formatCurrency(Number(value ?? 0));
 
 export function CalculadoraPrestamo() {
   const [form, setForm] = useState({ monto: '', tasaAnual: '', plazoMeses: '' })
@@ -117,7 +121,7 @@ export function CalculadoraPrestamo() {
                 </defs>
                 <XAxis dataKey="mes" tick={{ fontSize: 11 }} />
                 <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`} />
-                <Tooltip formatter={(value: number) => formatCurrency(value)} />
+             <Tooltip formatter={customFormatter} />
                 <Legend />
                 <Area type="monotone" dataKey="Saldo" stroke="#3b82f6" fill="url(#colorSaldo)" strokeWidth={2} />
                 <Area type="monotone" dataKey="Capital" stroke="#10b981" fill="none" strokeWidth={2} />

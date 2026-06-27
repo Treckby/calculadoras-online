@@ -11,7 +11,12 @@ import { ResultCard } from '../../components/ui/ResultCard'
 import { calcularAhorro } from '../../lib/calculadoras/ahorro'
 import { AhorroResultado } from '../../types'
 import { formatCurrency, formatNumber } from '../../lib/utils'
+import { TooltipProps } from 'recharts';
 
+const customFormatter: TooltipProps['formatter'] = (value, name) => [
+  formatCurrency(Number(value)),
+  name === 'aportado' ? 'Aportado' : 'Intereses',
+];
 export function CalculadoraAhorro() {
   const [form, setForm] = useState({
     montoInicial: '',
@@ -135,13 +140,7 @@ export function CalculadoraAhorro() {
                   tick={{ fontSize: 11 }}
                   tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`}
                 />
-                <Tooltip
-                  formatter={(value: number, name: string) => [
-                    formatCurrency(value),
-                    name === 'aportado' ? 'Aportado' : 'Intereses',
-                  ]}
-                  labelFormatter={(label) => `Año ${label}`}
-                />
+                <Tooltip formatter={customFormatter} />
                 <Legend
                   formatter={(value) => (value === 'aportado' ? 'Aportado' : 'Intereses')}
                 />

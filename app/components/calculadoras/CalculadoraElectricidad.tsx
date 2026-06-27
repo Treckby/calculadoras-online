@@ -10,6 +10,12 @@ import { calcularElectricidad, APARATOS_COMUNES } from '../../lib/calculadoras/e
 import { Aparato, ElectricidadResultado } from '../../types'
 import { formatCurrency, formatNumber } from '../../lib/utils'
 import { cn } from '../../lib/utils'
+import { TooltipProps } from 'recharts';
+
+const customFormatter: TooltipProps['formatter'] = (value) => [
+  `${formatNumber(Number(value ?? 0))} kWh`,
+  'Consumo mensual',
+];
 const BAR_COLORS = [
   '#3b82f6','#10b981','#f59e0b','#ef4444',
   '#8b5cf6','#06b6d4','#f97316','#84cc16',
@@ -60,7 +66,7 @@ export function CalculadoraElectricidad() {
   }
 
   // ── Agregar aparato desde lista rápida ──
-  function agregarDesdeLista(nombre: string, potencia: number) {
+  function agregarDesdelista(nombre: string, potencia: number) {
     setAparatos((prev) => [
       ...prev,
       { id: generarId(), nombre, potencia, horas: 4 },
@@ -266,7 +272,7 @@ export function CalculadoraElectricidad() {
               <BarChart data={datosGrafica} layout="vertical" barSize={18}>
                 <XAxis type="number" tick={{ fontSize: 11 }} unit=" kWh" />
                 <YAxis type="category" dataKey="name" tick={{ fontSize: 11 }} width={130} />
-                <Tooltip formatter={(v: number) => [`${formatNumber(v)} kWh`, 'Consumo mensual']} />
+               <Tooltip formatter={customFormatter} />
                 <Bar dataKey="kWh" radius={[0, 6, 6, 0]}>
                   {datosGrafica.map((_, i) => (
                     <Cell key={i} fill={BAR_COLORS[i % BAR_COLORS.length]} />

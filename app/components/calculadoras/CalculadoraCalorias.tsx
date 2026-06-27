@@ -8,19 +8,25 @@ import { ResultCard } from '../../components/ui/ResultCard'
 import { calcularCalorias } from '../../lib/calculadoras/calorias'
 import { CaloriasResultado, NivelActividad, Objetivo, Sexo } from '../../types'
 import { cn } from '../../lib/utils'
+import { TooltipProps } from 'recharts';
+
+const customFormatter: TooltipProps['formatter'] = (value, name) => [
+  `${value ?? 0}g`,
+  name,
+];
 
 const ACTIVIDADES: { value: NivelActividad; label: string; desc: string }[] = [
-  { value: 'sedentario',  label: 'Sedentario',   desc: 'Sin ejercicio' },
-  { value: 'ligero',      label: 'Ligero',        desc: '1–3 días/sem' },
-  { value: 'moderado',    label: 'Moderado',      desc: '3–5 días/sem' },
-  { value: 'activo',      label: 'Activo',        desc: '6–7 días/sem' },
-  { value: 'muy_activo',  label: 'Muy activo',    desc: '2 veces/día' },
+  { value: 'sedentario', label: 'Sedentario', desc: 'Sin ejercicio' },
+  { value: 'ligero', label: 'Ligero', desc: '1–3 días/sem' },
+  { value: 'moderado', label: 'Moderado', desc: '3–5 días/sem' },
+  { value: 'activo', label: 'Activo', desc: '6–7 días/sem' },
+  { value: 'muy_activo', label: 'Muy activo', desc: '2 veces/día' },
 ]
 
 const OBJETIVOS: { value: Objetivo; label: string; color: string }[] = [
-  { value: 'perder',    label: '⬇ Perder peso',    color: 'border-blue-500 bg-blue-50 text-blue-700' },
-  { value: 'mantener',  label: '⚖ Mantener peso',  color: 'border-green-500 bg-green-50 text-green-700' },
-  { value: 'ganar',     label: '⬆ Ganar músculo',  color: 'border-orange-500 bg-orange-50 text-orange-700' },
+  { value: 'perder', label: '⬇ Perder peso', color: 'border-blue-500 bg-blue-50 text-blue-700' },
+  { value: 'mantener', label: '⚖ Mantener peso', color: 'border-green-500 bg-green-50 text-green-700' },
+  { value: 'ganar', label: '⬆ Ganar músculo', color: 'border-orange-500 bg-orange-50 text-orange-700' },
 ]
 
 const MACRO_COLORS = ['#3b82f6', '#10b981', '#f59e0b']
@@ -37,9 +43,9 @@ export function CalculadoraCalorias() {
 
   function validar() {
     const e: Record<string, string> = {}
-    if (!form.peso   || Number(form.peso)   <= 0) e.peso   = 'Ingresa tu peso'
+    if (!form.peso || Number(form.peso) <= 0) e.peso = 'Ingresa tu peso'
     if (!form.altura || Number(form.altura) <= 0) e.altura = 'Ingresa tu altura'
-    if (!form.edad   || Number(form.edad)   <= 0) e.edad   = 'Ingresa tu edad'
+    if (!form.edad || Number(form.edad) <= 0) e.edad = 'Ingresa tu edad'
     setErrors(e)
     return Object.keys(e).length === 0
   }
@@ -48,29 +54,29 @@ export function CalculadoraCalorias() {
     if (!validar()) return
     setResultado(
       calcularCalorias({
-        peso:      Number(form.peso),
-        altura:    Number(form.altura),
-        edad:      Number(form.edad),
-        sexo:      form.sexo,
+        peso: Number(form.peso),
+        altura: Number(form.altura),
+        edad: Number(form.edad),
+        sexo: form.sexo,
         actividad: form.actividad,
-        objetivo:  form.objetivo,
+        objetivo: form.objetivo,
       })
     )
   }
 
   const dataMacros = resultado
     ? [
-        { name: 'Proteínas',     value: resultado.proteinas,     g: `${resultado.proteinas}g` },
-        { name: 'Carbohidratos', value: resultado.carbohidratos, g: `${resultado.carbohidratos}g` },
-        { name: 'Grasas',        value: resultado.grasas,        g: `${resultado.grasas}g` },
-      ]
+      { name: 'Proteínas', value: resultado.proteinas, g: `${resultado.proteinas}g` },
+      { name: 'Carbohidratos', value: resultado.carbohidratos, g: `${resultado.carbohidratos}g` },
+      { name: 'Grasas', value: resultado.grasas, g: `${resultado.grasas}g` },
+    ]
     : []
 
   const imcColor =
     resultado?.imc && resultado.imc < 18.5 ? 'text-blue-500'
-    : resultado?.imc && resultado.imc < 25  ? 'text-green-500'
-    : resultado?.imc && resultado.imc < 30  ? 'text-yellow-500'
-    : 'text-red-500'
+      : resultado?.imc && resultado.imc < 25 ? 'text-green-500'
+        : resultado?.imc && resultado.imc < 30 ? 'text-yellow-500'
+          : 'text-red-500'
 
   return (
     <div className="space-y-8">
@@ -219,15 +225,16 @@ export function CalculadoraCalorias() {
                       <Cell key={i} fill={MACRO_COLORS[i]} />
                     ))}
                   </Pie>
-                  <Tooltip formatter={(value: number, name: string) => [`${value}g`, name]} />
+          <Tooltip formatter={customFormatter} />
+
                 </PieChart>
               </ResponsiveContainer>
 
               <div className="flex-1 space-y-4 w-full">
                 {[
-                  { label: 'Proteínas',     g: resultado.proteinas,     kcal: resultado.proteinas * 4,     color: 'bg-blue-500',   pct: '30%' },
-                  { label: 'Carbohidratos', g: resultado.carbohidratos, kcal: resultado.carbohidratos * 4, color: 'bg-green-500',  pct: '40%' },
-                  { label: 'Grasas',        g: resultado.grasas,        kcal: resultado.grasas * 9,        color: 'bg-amber-500',  pct: '30%' },
+                  { label: 'Proteínas', g: resultado.proteinas, kcal: resultado.proteinas * 4, color: 'bg-blue-500', pct: '30%' },
+                  { label: 'Carbohidratos', g: resultado.carbohidratos, kcal: resultado.carbohidratos * 4, color: 'bg-green-500', pct: '40%' },
+                  { label: 'Grasas', g: resultado.grasas, kcal: resultado.grasas * 9, color: 'bg-amber-500', pct: '30%' },
                 ].map((m) => (
                   <div key={m.label}>
                     <div className="flex justify-between text-sm mb-1">

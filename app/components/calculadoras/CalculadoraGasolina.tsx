@@ -13,6 +13,12 @@ import { calcularGasolina, PRECIOS_REFERENCIA } from '../../lib/calculadoras/gas
 import { GasolinaResultado, TipoGasolina, TipoRuta } from '../../types'
 import { formatCurrency, formatNumber } from '../../lib/utils'
 import { cn } from '../../lib/utils'
+import { TooltipProps } from 'recharts';
+
+const customFormatter: TooltipProps['formatter'] = (value, name) => [
+  formatCurrency(Number(value ?? 0)),
+  'Costo mensual',
+];
 
 const TIPOS_GASOLINA: { value: TipoGasolina; label: string; color: string }[] = [
   { value: 'magna',   label: '⛽ Magna',   color: 'border-green-500 bg-green-50 text-green-700' },
@@ -250,7 +256,7 @@ export function CalculadoraGasolina() {
               <BarChart data={datosComparativa} barSize={48}>
                 <XAxis dataKey="name" tick={{ fontSize: 11 }} />
                 <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `$${(v / 1000).toFixed(1)}k`} />
-                <Tooltip formatter={(v: number) => [formatCurrency(v), 'Costo mensual']} />
+              <Tooltip formatter={customFormatter} />
                 <Bar dataKey="costo" radius={[6, 6, 0, 0]}>
                   <Cell fill="#fca5a5" />
                   <Cell fill="#ef4444" />
