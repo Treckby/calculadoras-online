@@ -1,5 +1,5 @@
 import { CalcCard } from './components/ui/CalcCard'
-import { Landmark, PiggyBank, Apple, Zap, HardHat, Car } from 'lucide-react'
+import { Landmark, PiggyBank, Apple, Zap, HardHat, Car,Fuel } from 'lucide-react'
 
 const calculadoras = [
   {
@@ -36,12 +36,12 @@ const calculadoras = [
   },
   
   {
-    title: 'Consumo de gasolina',
-    description: 'Calcula kilometros por litro, por galon, etc',
-    href: '/calculadoras/gasolina',
-    icon: Car,
-    color: 'text-rose-600',
-    bgColor: 'bg-rose-50',
+  title: 'Calculadora de Gasolina',
+  description: 'Calcula tu gasto mensual en combustible y cuánto ahorrarías mejorando el rendimiento.',
+  href: '/calculadoras/gasolina',
+  icon: Fuel,
+  color: 'text-rose-600',
+  bgColor: 'bg-rose-50',
   },
 ]
 

@@ -1,13 +1,37 @@
 import { Apple } from 'lucide-react'
 import { CalculadoraCalorias } from '../../components/calculadoras/CalculadoraCalorias'
+import { Metadata } from 'next'
+import { WebAppSchema } from '../../components/seo/JsonLd'
 
-export const metadata = {
-  title: 'Calculadora de Calorías | CalcFácil',
-  description: 'Calcula tus calorías diarias y macronutrientes según tu cuerpo y objetivo.',
+export const metadata: Metadata = {
+  title: 'Calculadora de Calorías y Macros',
+  description:
+    'Calcula tus calorías diarias con la fórmula Mifflin-St Jeor. Obtén tu TMB, TDEE y distribución de macronutrientes según tu objetivo.',
+  keywords: [
+    'calculadora de calorias', 'tmb', 'tdee', 'macronutrientes',
+    'perder peso', 'ganar musculo', 'dieta', 'imc',
+  ],
+  alternates: { canonical: 'https://tudominio.com/calculadoras/calorias' },
+  openGraph: {
+    title: 'Calculadora de Calorías y Macronutrientes',
+    description: 'Calcula tu TMB, TDEE y macros diarios según tu cuerpo y objetivo.',
+    url: 'https://tudominio.com/calculadoras/calorias',
+      images: [{
+    url: `/og?title=Calculadora de Calorías y Macronutrientes&desc=Calcula tu TMB, TDEE`,
+    width: 1200,
+    height: 630,
+  }],
+  },
 }
 
 export default function CaloriasPage() {
   return (
+        <>
+      <WebAppSchema
+        name="Calculadora de Calorías y Macronutrientes"
+        description="Calculadora de Calorías y Macronutrientes."
+        url="https://tudominio.com/calculadoras/prestamos"
+      />
     <div className="max-w-5xl mx-auto px-4 py-10">
       <div className="flex items-center gap-3 mb-2">
         <div className="w-10 h-10 bg-orange-50 rounded-xl flex items-center justify-center">
@@ -20,5 +44,6 @@ export default function CaloriasPage() {
       </p>
       <CalculadoraCalorias />
     </div>
+    </>
   )
 }

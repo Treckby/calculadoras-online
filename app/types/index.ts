@@ -84,3 +84,24 @@ export interface AparatoCalculado extends Aparato {
   costoMes: number
   porcentaje: number
 }
+export type TipoGasolina = 'magna' | 'premium' | 'diesel'
+export type TipoRuta = 'ciudad' | 'carretera' | 'mixto'
+
+export interface GasolinaDatos {
+  distanciaKm: number
+  rendimientoKml: number      // km por litro
+  tipoGasolina: TipoGasolina
+  precioLitro: number
+  tipoRuta: TipoRuta
+  viajesAlMes: number
+}
+
+export interface GasolinaResultado {
+  litrosViaje: number
+  costoViaje: number
+  litrosMes: number
+  costoMes: number
+  costoAnual: number
+  emisionesCo2Mes: number     // kg de CO2
+  rendimientoAjustado: number // según tipo de ruta
+}
