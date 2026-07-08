@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { Header } from './components/layout/Header'
+import Script from 'next/script'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -61,6 +62,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="es">
       <body className={`${inter.className} bg-slate-50 min-h-screen`}>
         <Header />
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1793586690744453"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
         <main>{children}</main>
         <footer className="text-center py-8 text-sm text-slate-400 border-t border-slate-200 mt-16">
           © {new Date().getFullYear()} CalcFácil — Calculadoras gratuitas en español
