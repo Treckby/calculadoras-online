@@ -66,7 +66,7 @@ export default async function AdminVisitasPage({
   const dias = Number(params?.dias) || 30
   const { total, porPagina, porDia } = await obtenerEstadisticas(dias)
 
-  const opcionesDias = [7, 14, 30, 90]
+  const opcionesDias = [1,7, 14, 30, 90]
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-10">
