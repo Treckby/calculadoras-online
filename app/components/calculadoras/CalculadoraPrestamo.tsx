@@ -9,6 +9,7 @@ import { calcularPrestamo } from '../../lib/calculadoras/prestamo'
 import { PrestamoResultado } from '../../types'
 import { formatCurrency, formatNumber } from '../../lib/utils'
 import { TooltipProps } from 'recharts';
+import { RegistrarVisita } from '../../components/seo/RegistrarVisita'
 
 const customFormatter: TooltipProps['formatter'] = (value) =>
   formatCurrency(Number(value ?? 0));
@@ -49,6 +50,7 @@ export function CalculadoraPrestamo() {
 
   return (
     <div className="space-y-8">
+      <RegistrarVisita pagina="calculadora-prestamos" />
       {/* Formulario */}
       <div className="bg-white rounded-2xl border border-slate-200 p-6">
         <h2 className="font-bold text-slate-800 text-lg mb-6">Datos del préstamo</h2>

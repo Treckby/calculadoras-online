@@ -1,6 +1,6 @@
 import { CalcCard } from './components/ui/CalcCard'
 import { Landmark, PiggyBank, Apple, Zap, HardHat, Car,Fuel } from 'lucide-react'
-
+import { RegistrarVisita } from './components/seo/RegistrarVisita'
 const calculadoras = [
   {
     title: 'Calculadora de Préstamos',
@@ -60,6 +60,7 @@ export default function Home() {
 
       {/* Grid de calculadoras */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <RegistrarVisita pagina='home'></RegistrarVisita>
         {calculadoras.map((calc) => (
           <CalcCard key={calc.href} {...calc} />
         ))}

@@ -14,6 +14,7 @@ import { GasolinaResultado, TipoGasolina, TipoRuta } from '../../types'
 import { formatCurrency, formatNumber } from '../../lib/utils'
 import { cn } from '../../lib/utils'
 import { TooltipProps } from 'recharts';
+import { RegistrarVisita } from '../../components/seo/RegistrarVisita'
 
 const customFormatter: TooltipProps['formatter'] = (value, name) => [
   formatCurrency(Number(value ?? 0)),
@@ -98,7 +99,7 @@ export function CalculadoraGasolina() {
 
   return (
     <div className="space-y-8">
-
+<RegistrarVisita pagina="calculadora-gasolina" />
       {/* ── Formulario ── */}
       <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-6">
         <h2 className="font-bold text-slate-800 text-lg">Datos de tu auto y ruta</h2>

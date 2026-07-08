@@ -9,6 +9,7 @@ import { calcularCalorias } from '../../lib/calculadoras/calorias'
 import { CaloriasResultado, NivelActividad, Objetivo, Sexo } from '../../types'
 import { cn } from '../../lib/utils'
 import { TooltipProps } from 'recharts';
+import { RegistrarVisita } from '../../components/seo/RegistrarVisita'
 
 const customFormatter: TooltipProps['formatter'] = (value, name) => [
   `${value ?? 0}g`,
@@ -80,6 +81,7 @@ export function CalculadoraCalorias() {
 
   return (
     <div className="space-y-8">
+      <RegistrarVisita pagina="calculadora-calorias" />
       {/* Formulario */}
       <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-6">
         <h2 className="font-bold text-slate-800 text-lg">Tus datos físicos</h2>

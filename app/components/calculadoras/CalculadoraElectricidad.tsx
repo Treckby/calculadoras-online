@@ -11,6 +11,7 @@ import { Aparato, ElectricidadResultado } from '../../types'
 import { formatCurrency, formatNumber } from '../../lib/utils'
 import { cn } from '../../lib/utils'
 import { TooltipProps } from 'recharts';
+import { RegistrarVisita } from '../../components/seo/RegistrarVisita'
 
 const customFormatter: TooltipProps['formatter'] = (value) => [
   `${formatNumber(Number(value ?? 0))} kWh`,
@@ -92,6 +93,7 @@ export function CalculadoraElectricidad() {
 
   return (
     <div className="space-y-8">
+      <RegistrarVisita pagina="calculadora-electricidad" />
 
       {/* ── Tarifa CFE ── */}
       <div className="bg-yellow-50 border border-yellow-200 rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center gap-4">

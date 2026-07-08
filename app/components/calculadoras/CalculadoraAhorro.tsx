@@ -12,6 +12,7 @@ import { calcularAhorro } from '../../lib/calculadoras/ahorro'
 import { AhorroResultado } from '../../types'
 import { formatCurrency, formatNumber } from '../../lib/utils'
 import { TooltipProps } from 'recharts';
+import { RegistrarVisita } from '../../components/seo/RegistrarVisita'
 
 const customFormatter: TooltipProps['formatter'] = (value, name) => [
   formatCurrency(Number(value)),
@@ -55,6 +56,7 @@ export function CalculadoraAhorro() {
 
   return (
     <div className="space-y-8">
+      <RegistrarVisita pagina="calculadora-ahorro" />
       {/* Formulario */}
       <div className="bg-white rounded-2xl border border-slate-200 p-6">
         <h2 className="font-bold text-slate-800 text-lg mb-6">Datos del ahorro</h2>
