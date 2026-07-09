@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Calculator } from 'lucide-react'
+import { Buscador } from './Buscador'
 
 export function Header() {
   return (
@@ -21,6 +22,8 @@ export function Header() {
           <Link href="/calculadoras/propina" className="hover:text-blue-600 transition-colors">Propina</Link>
           <Link href="/calculadoras/descuento" className="hover:text-blue-600 transition-colors">Descuentos</Link>
         </nav>
+                {/* Buscador */}
+        <Buscador />
       </div>
     </header>
   )
