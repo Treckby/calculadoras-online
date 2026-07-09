@@ -105,3 +105,26 @@ export interface GasolinaResultado {
   emisionesCo2Mes: number     // kg de CO2
   rendimientoAjustado: number // según tipo de ruta
 }
+export interface DescuentoResultado {
+  precioOriginal: number
+  montoDescuento: number
+  precioFinal: number
+  porcentajeAhorro: number
+}
+
+export interface PropinaResultado {
+  montoPropina: number
+  totalConPropina: number
+  porPersona: number
+  propinaPersona: number
+  cuentaPersona: number
+}
+
+export interface IvaResultado {
+  montoOriginal: number
+  montoIva: number
+  montoFinal: number
+  porcentaje: number
+}
+
+export type OperacionIva = 'agregar' | 'quitar' | 'calcular'

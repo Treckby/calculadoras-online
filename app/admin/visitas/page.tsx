@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js'
-import { BarChart2, Users, Calendar } from 'lucide-react'
+import { BarChart2, Users, Calendar,Receipt, Tag, UtensilsCrossed } from 'lucide-react'
 
 // Cliente con privilegios para leer visitas
 function createAdminClient() {
@@ -16,6 +16,10 @@ const NOMBRES: Record<string, string> = {
   'calculadora-calorias':    '🍎 Calorías',
   'calculadora-electricidad':'⚡ Electricidad',
   'calculadora-gasolina':    '⛽ Gasolina',
+  'calculadora-iva':         '💰 Iva',
+  'calculadora-descuento':   '🏷️ Descuento',
+  'calculadora-propina':     '💵 Propina',
+  
 }
 
 async function obtenerEstadisticas(dias: number) {

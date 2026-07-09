@@ -1,6 +1,7 @@
 import { CalcCard } from './components/ui/CalcCard'
-import { Landmark, PiggyBank, Apple, Zap, HardHat, Car,Fuel } from 'lucide-react'
+import { Landmark, PiggyBank, Apple, Zap, HardHat, Car,Fuel ,Receipt, Tag, UtensilsCrossed} from 'lucide-react'
 import { RegistrarVisita } from './components/seo/RegistrarVisita'
+
 const calculadoras = [
   {
     title: 'Calculadora de Préstamos',
@@ -43,6 +44,30 @@ const calculadoras = [
   color: 'text-rose-600',
   bgColor: 'bg-rose-50',
   },
+  {
+  title: 'Calculadora de IVA',
+  description: 'Agrega o quita el IVA a cualquier precio. Calcula el 16% y 8% al instante.',
+  href: '/calculadoras/iva',
+  icon: Receipt,
+  color: 'text-violet-600',
+  bgColor: 'bg-violet-50',
+},
+{
+  title: 'Calculadora de Propina',
+  description: 'Calcula la propina y divide la cuenta entre varias personas fácilmente.',
+  href: '/calculadoras/propina',
+  icon: UtensilsCrossed,
+  color: 'text-pink-600',
+  bgColor: 'bg-pink-50',
+},
+{
+  title: 'Calculadora de Descuentos',
+  description: 'Calcula el precio final con descuento por porcentaje o cantidad fija.',
+  href: '/calculadoras/descuento',
+  icon: Tag,
+  color: 'text-emerald-600',
+  bgColor: 'bg-emerald-50',
+},
 ]
 
 export default function Home() {

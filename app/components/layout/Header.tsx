@@ -17,6 +17,9 @@ export function Header() {
           <Link href="/calculadoras/calorias" className="hover:text-blue-600 transition-colors">Calorías</Link>
           <Link href="/calculadoras/electricidad" className="hover:text-blue-600 transition-colors">Electricidad</Link>
           <Link href="/calculadoras/gasolina" className="hover:text-blue-600 transition-colors">Gasolina</Link>
+          <Link href="/calculadoras/iva" className="hover:text-blue-600 transition-colors">IVA</Link>
+          <Link href="/calculadoras/propina" className="hover:text-blue-600 transition-colors">Propina</Link>
+          <Link href="/calculadoras/descuento" className="hover:text-blue-600 transition-colors">Descuentos</Link>
         </nav>
       </div>
     </header>
