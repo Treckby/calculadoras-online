@@ -25,7 +25,8 @@ const NOMBRES: Record<string, string> = {
 async function obtenerEstadisticas(dias: number) {
   const supabase = createAdminClient()
   const desde = new Date()
-  desde.setDate(desde.getDate() - dias)
+  desde.setHours(0,0,0,0) 
+desde.setDate(desde.getDate() - (dias - 1))
 
   const { data } = await supabase
     .from('visitas')
@@ -56,7 +57,7 @@ async function obtenerEstadisticas(dias: number) {
 
   const porDia = Object.entries(conteoDia)
     .map(([dia, visitas]) => ({ dia, visitas }))
-    .slice(-14)  // últimos 14 días
+    .slice(-dias)  // últimos 14 días
 
   return { total: data.length, porPagina, porDia }
 }
@@ -70,7 +71,7 @@ export default async function AdminVisitasPage({
   const dias = Number(params?.dias) || 30
   const { total, porPagina, porDia } = await obtenerEstadisticas(dias)
 
-  const opcionesDias = [1,7, 14, 30, 90]
+  const opcionesDias = [1,2,5,7, 14, 30, 90]
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-10">
