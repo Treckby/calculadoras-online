@@ -128,3 +128,46 @@ export interface IvaResultado {
 }
 
 export type OperacionIva = 'agregar' | 'quitar' | 'calcular'
+export interface PesoIdealResultado {
+  imc:              number
+  clasificacionImc: string
+  colorImc:         string
+  pesoIdealMin:     number
+  pesoIdealMax:     number
+  diferencia:       number
+  pesoSaludable:    boolean
+  devine:           number
+  robinson:         number
+  miller:           number
+  promedio:         number
+}
+
+export interface InflacionResultado {
+  valorFuturo:       number
+  valorPresente:     number
+  perdidaPoder:      number
+  porcentajePerdida: number
+  proyeccion:        { anio: number; valor: number; podAdquisitivo: number }[]
+}
+
+export interface FechasResultado {
+  dias:        number
+  semanas:     number
+  meses:       number
+  anios:       number
+  diasHabiles: number
+  fines:       number
+  esFuturo:    boolean
+}
+
+export interface PorcentajeResultado {
+  resultado:   number
+  descripcion: string
+}
+
+export type OperacionPorcentaje =
+  | 'porcentaje_de'
+  | 'que_porcentaje'
+  | 'aumento'
+  | 'disminucion'
+  | 'variacion'
