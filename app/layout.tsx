@@ -63,12 +63,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${inter.className} bg-slate-50 min-h-screen`}>
         <Header />
         <head>
-      <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1793586690744453"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
+<meta name="google-adsense-account" content="ca-pub-1793586690744453"></meta>
 
         </head>
   

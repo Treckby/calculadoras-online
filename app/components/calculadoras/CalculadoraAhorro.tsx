@@ -106,89 +106,91 @@ export function CalculadoraAhorro() {
 
       {/* Resultados */}
       {resultado && (
-        <>
-         <ResultadoExportable
-    id="resultado-prestamo"
-    nombreArchivo="calculadora-prestamos"
-    titulo="Calculadora de Préstamos"
-    mostrar={!!resultado}
-  >
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <ResultCard
-              label="Total ahorrado"
-              value={formatCurrency(resultado.totalAhorrado)}
-              highlight
-              sublabel={`En ${form.plazoAnios} años`}
-            />
-            <ResultCard
-              label="Total aportado"
-              value={formatCurrency(resultado.totalAportado)}
-              sublabel="Tu dinero invertido"
-            />
-            <ResultCard
-              label="Intereses ganados"
-              value={formatCurrency(resultado.totalIntereses)}
-              sublabel={`${formatNumber(porcentajeInteres)}% del total`}
-            />
-          </div>
+        <div >
+          <ResultadoExportable 
 
-          {/* Gráfica de barras apiladas */}
-          <div className="bg-white rounded-2xl border border-slate-200 p-6">
-            <h3 className="font-bold text-slate-800 mb-1">Crecimiento año a año</h3>
-            <p className="text-sm text-slate-400 mb-6">
-              Azul = lo que aportaste · Verde = intereses generados
-            </p>
-            <ResponsiveContainer width="100%" height={280}>
-              <BarChart data={resultado.proyeccion} barSize={28}>
-                <XAxis
-                  dataKey="anio"
-                  tick={{ fontSize: 11 }}
-                  tickFormatter={(v) => `Año ${v}`}
-                />
-                <YAxis
-                  tick={{ fontSize: 11 }}
-                  tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`}
-                />
-                <Tooltip formatter={customFormatter} />
-                <Legend
-                  formatter={(value) => (value === 'aportado' ? 'Aportado' : 'Intereses')}
-                />
-                <Bar dataKey="aportado" stackId="a" fill="#3b82f6" radius={[0, 0, 4, 4]} />
-                <Bar dataKey="intereses" stackId="a" fill="#10b981" radius={[4, 4, 0, 0]} />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
+            id="resultado-prestamo"
+            nombreArchivo="calculadora-prestamos"
+            titulo="Calculadora de Préstamos"
+            mostrar={!!resultado}
 
-          {/* Tabla de proyección */}
-          <div className="bg-white rounded-2xl border border-slate-200 p-6">
-            <h3 className="font-bold text-slate-800 mb-4">Proyección anual</h3>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b border-slate-200">
-                    {['Año', 'Total ahorrado', 'Total aportado', 'Intereses acumulados', '% rendimiento'].map((h) => (
-                      <th key={h} className="text-left py-3 px-2 text-slate-500 font-medium">{h}</th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {resultado.proyeccion.map((fila) => (
-                    <tr key={fila.anio} className="border-b border-slate-100 hover:bg-slate-50">
-                      <td className="py-2 px-2 font-medium text-slate-700">Año {fila.anio}</td>
-                      <td className="py-2 px-2 font-semibold text-green-600">{formatCurrency(fila.saldo)}</td>
-                      <td className="py-2 px-2 text-slate-600">{formatCurrency(fila.aportado)}</td>
-                      <td className="py-2 px-2 text-blue-600">{formatCurrency(fila.intereses)}</td>
-                      <td className="py-2 px-2 text-slate-500">
-                        {formatNumber((fila.intereses / fila.aportado) * 100)}%
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <ResultCard
+                label="Total ahorrado"
+                value={formatCurrency(resultado.totalAhorrado)}
+                highlight
+                sublabel={`En ${form.plazoAnios} años`}
+              />
+              <ResultCard
+                label="Total aportado"
+                value={formatCurrency(resultado.totalAportado)}
+                sublabel="Tu dinero invertido"
+              />
+              <ResultCard
+                label="Intereses ganados"
+                value={formatCurrency(resultado.totalIntereses)}
+                sublabel={`${formatNumber(porcentajeInteres)}% del total`}
+              />
             </div>
-          </div>
+
+            {/* Gráfica de barras apiladas */}
+            <div className="bg-white rounded-2xl border border-slate-200 p-6">
+              <h3 className="font-bold text-slate-800 mb-1">Crecimiento año a año</h3>
+              <p className="text-sm text-slate-400 mb-6">
+                Azul = lo que aportaste · Verde = intereses generados
+              </p>
+              <ResponsiveContainer width="100%" height={280}>
+                <BarChart data={resultado.proyeccion} barSize={28}>
+                  <XAxis
+                    dataKey="anio"
+                    tick={{ fontSize: 11 }}
+                    tickFormatter={(v) => `Año ${v}`}
+                  />
+                  <YAxis
+                    tick={{ fontSize: 11 }}
+                    tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`}
+                  />
+                  <Tooltip formatter={customFormatter} />
+                  <Legend
+                    formatter={(value) => (value === 'aportado' ? 'Aportado' : 'Intereses')}
+                  />
+                  <Bar dataKey="aportado" stackId="a" fill="#3b82f6" radius={[0, 0, 4, 4]} />
+                  <Bar dataKey="intereses" stackId="a" fill="#10b981" radius={[4, 4, 0, 0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+
+            {/* Tabla de proyección */}
+            <div className="bg-white rounded-2xl border border-slate-200 p-6">
+              <h3 className="font-bold text-slate-800 mb-4">Proyección anual</h3>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-slate-200">
+                      {['Año', 'Total ahorrado', 'Total aportado', 'Intereses acumulados', '% rendimiento'].map((h) => (
+                        <th key={h} className="text-left py-3 px-2 text-slate-500 font-medium">{h}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {resultado.proyeccion.map((fila) => (
+                      <tr key={fila.anio} className="border-b border-slate-100 hover:bg-slate-50">
+                        <td className="py-2 px-2 font-medium text-slate-700">Año {fila.anio}</td>
+                        <td className="py-2 px-2 font-semibold text-green-600">{formatCurrency(fila.saldo)}</td>
+                        <td className="py-2 px-2 text-slate-600">{formatCurrency(fila.aportado)}</td>
+                        <td className="py-2 px-2 text-blue-600">{formatCurrency(fila.intereses)}</td>
+                        <td className="py-2 px-2 text-slate-500">
+                          {formatNumber((fila.intereses / fila.aportado) * 100)}%
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </ResultadoExportable>
-        </>
+        </div>
       )}
     </div>
   )

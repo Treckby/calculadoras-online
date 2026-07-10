@@ -9,6 +9,7 @@ import { calcularDescuento } from '../../lib/calculadoras/descuento'
 import { DescuentoResultado } from '../../types'
 import { formatCurrency, formatNumber } from '../../lib/utils'
 import { cn } from '../../lib/utils'
+import { ResultadoExportable } from '../../components/ui/ResultadoExportable'
 
 const DESCUENTOS_RAPIDOS = [5, 10, 15, 20, 25, 30, 50, 70]
 
@@ -119,6 +120,14 @@ export function CalculadoraDescuento() {
       {/* Resultado */}
       {resultado && (
         <>
+                  <ResultadoExportable 
+
+            id="resultado-prestamo"
+            nombreArchivo="calculadora-prestamos"
+            titulo="Calculadora de Préstamos"
+            mostrar={!!resultado}
+
+          >
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <ResultCard
               label="Precio original"
@@ -155,6 +164,7 @@ export function CalculadoraDescuento() {
               <span>{formatCurrency(resultado.montoDescuento)} ahorras</span>
             </div>
           </div>
+          </ResultadoExportable>
         </>
       )}
     </div>

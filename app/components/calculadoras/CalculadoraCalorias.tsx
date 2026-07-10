@@ -10,6 +10,7 @@ import { CaloriasResultado, NivelActividad, Objetivo, Sexo } from '../../types'
 import { cn } from '../../lib/utils'
 import { TooltipProps } from 'recharts';
 import { RegistrarVisita } from '../../components/seo/RegistrarVisita'
+import { ResultadoExportable } from '../../components/ui/ResultadoExportable'
 
 const customFormatter: TooltipProps['formatter'] = (value, name) => [
   `${value ?? 0}g`,
@@ -191,6 +192,14 @@ export function CalculadoraCalorias() {
       {/* Resultados */}
       {resultado && (
         <>
+                  <ResultadoExportable 
+
+            id="resultado-prestamo"
+            nombreArchivo="calculadora-prestamos"
+            titulo="Calculadora de Préstamos"
+            mostrar={!!resultado}
+
+          >
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             <ResultCard
               label="Calorías diarias"
@@ -251,6 +260,7 @@ export function CalculadoraCalorias() {
               </div>
             </div>
           </div>
+          </ResultadoExportable>
         </>
       )}
     </div>

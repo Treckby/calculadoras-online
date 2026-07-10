@@ -8,6 +8,9 @@ import { ResultCard } from '../../components/ui/ResultCard'
 import { calcularInflacion } from '../../lib/calculadoras/inflacion'
 import { InflacionResultado } from '../../types'
 import { formatCurrency, formatNumber } from '../../lib/utils'
+import { ResultadoExportable } from '../../components/ui/ResultadoExportable'
+import { TooltipProps } from 'recharts';
+
 
 const TASAS_REFERENCIA = [
   { label: 'México 2024', tasa: 4.7  },
@@ -46,6 +49,9 @@ export function CalculadoraInflacion() {
       tasaAnual:  Number(form.tasaAnual),
     }))
   }
+  const customFormatter: TooltipProps['formatter'] = (value, name) => {
+  return [formatCurrency(Number(value ?? 0)), name];
+};
 
   return (
     <div className="space-y-8">
@@ -85,6 +91,14 @@ export function CalculadoraInflacion() {
 
       {resultado && (
         <>
+                  <ResultadoExportable 
+
+            id="resultado-prestamo"
+            nombreArchivo="calculadora-prestamos"
+            titulo="Calculadora de Préstamos"
+            mostrar={!!resultado}
+
+          >
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <ResultCard
               label="Necesitarás en el futuro"
@@ -120,13 +134,14 @@ export function CalculadoraInflacion() {
                 </defs>
                 <XAxis dataKey="anio" tick={{ fontSize: 11 }} />
                 <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`} />
-                <Tooltip formatter={(v: number) => formatCurrency(v)} />
+<Tooltip formatter={customFormatter} />
                 <Legend />
                 <Area type="monotone" dataKey="valor"          name="Necesitas"           stroke="#f59e0b" fill="url(#colorValor)" strokeWidth={2} />
                 <Area type="monotone" dataKey="podAdquisitivo" name="Poder adquisitivo"   stroke="#94a3b8" fill="none"             strokeWidth={2} strokeDasharray="4 4" />
               </AreaChart>
             </ResponsiveContainer>
           </div>
+          </ResultadoExportable>
         </>
       )}
     </div>

@@ -7,6 +7,7 @@ import { Button } from '../../components/ui/Button'
 import { MONEDAS, Moneda, obtenerTasas } from '../../lib/calculadoras/tipoCambio'
 import { formatNumber } from '../../lib/utils'
 import { cn } from '../../lib/utils'
+import { ResultadoExportable } from '../../components/ui/ResultadoExportable'
 
 export function CalculadoraTipoCambio() {
   const [monto, setMonto]         = useState('')
@@ -132,6 +133,14 @@ export function CalculadoraTipoCambio() {
 
       {/* Resultado */}
       {resultado !== null && tasa !== null && (
+          <ResultadoExportable 
+
+            id="resultado-prestamo"
+            nombreArchivo="calculadora-prestamos"
+            titulo="Calculadora de Préstamos"
+            mostrar={!!resultado}
+
+          >      
         <div className="bg-cyan-500 rounded-2xl p-8 text-white text-center">
           <p className="text-cyan-100 text-sm mb-1">
             {monedaDe.bandera} {formatNumber(Number(monto))} {de} equivale a
@@ -148,6 +157,7 @@ export function CalculadoraTipoCambio() {
             <span>Actualizado {actualizado}</span>
           </div>
         </div>
+        </ResultadoExportable>  
       )}
 
       {/* Mini tabla de referencia */}

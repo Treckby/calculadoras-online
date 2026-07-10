@@ -10,6 +10,7 @@ import { PrestamoResultado } from '../../types'
 import { formatCurrency, formatNumber } from '../../lib/utils'
 import { TooltipProps } from 'recharts';
 import { RegistrarVisita } from '../../components/seo/RegistrarVisita'
+import { ResultadoExportable } from '../../components/ui/ResultadoExportable'
 
 const customFormatter: TooltipProps['formatter'] = (value) =>
   formatCurrency(Number(value ?? 0));
@@ -91,6 +92,14 @@ export function CalculadoraPrestamo() {
       {/* Resultados */}
       {resultado && (
         <>
+                  <ResultadoExportable 
+
+            id="resultado-prestamo"
+            nombreArchivo="calculadora-prestamos"
+            titulo="Calculadora de Préstamos"
+            mostrar={!!resultado}
+
+          >
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <ResultCard
               label="Cuota mensual"
@@ -158,6 +167,7 @@ export function CalculadoraPrestamo() {
               </table>
             </div>
           </div>
+          </ResultadoExportable>
         </>
       )}
     </div>

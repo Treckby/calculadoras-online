@@ -9,6 +9,7 @@ import { calcularPropina } from '../../lib/calculadoras/propina'
 import { PropinaResultado } from '../../types'
 import { formatCurrency } from '../../lib/utils'
 import { cn } from '../../lib/utils'
+import { ResultadoExportable } from '../../components/ui/ResultadoExportable'
 
 const PORCENTAJES_RAPIDOS = [10, 15, 18, 20, 25]
 
@@ -119,6 +120,14 @@ export function CalculadoraPropina() {
       {/* Resultados */}
       {resultado && (
         <>
+                  <ResultadoExportable 
+
+            id="resultado-prestamo"
+            nombreArchivo="calculadora-prestamos"
+            titulo="Calculadora de Préstamos"
+            mostrar={!!resultado}
+
+          >
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <ResultCard
               label="Propina"
@@ -159,6 +168,7 @@ export function CalculadoraPropina() {
               </div>
             </div>
           )}
+          </ResultadoExportable>
         </>
       )}
     </div>

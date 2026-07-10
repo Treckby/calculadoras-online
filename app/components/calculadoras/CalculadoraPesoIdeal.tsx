@@ -7,6 +7,7 @@ import { calcularPesoIdeal } from '../../lib/calculadoras/pesoIdeal'
 import { PesoIdealResultado } from '../../types'
 import { formatNumber } from '../../lib/utils'
 import { cn } from '../../lib/utils'
+import { ResultadoExportable } from '../../components/ui/ResultadoExportable'
 
 export function CalculadoraPesoIdeal() {
   const [form, setForm] = useState({
@@ -86,6 +87,14 @@ export function CalculadoraPesoIdeal() {
 
       {resultado && (
         <>
+                  <ResultadoExportable 
+
+            id="resultado-prestamo"
+            nombreArchivo="calculadora-prestamos"
+            titulo="Calculadora de Préstamos"
+            mostrar={!!resultado}
+
+          >
           {/* IMC */}
           <div className="bg-white rounded-2xl border border-slate-200 p-6">
             <h3 className="font-bold text-slate-800 mb-6">Índice de Masa Corporal (IMC)</h3>
@@ -190,6 +199,7 @@ export function CalculadoraPesoIdeal() {
               ))}
             </div>
           </div>
+          </ResultadoExportable>
         </>
       )}
     </div>

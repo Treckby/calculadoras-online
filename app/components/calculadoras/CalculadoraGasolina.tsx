@@ -15,6 +15,7 @@ import { formatCurrency, formatNumber } from '../../lib/utils'
 import { cn } from '../../lib/utils'
 import { TooltipProps } from 'recharts';
 import { RegistrarVisita } from '../../components/seo/RegistrarVisita'
+import { ResultadoExportable } from '../../components/ui/ResultadoExportable'
 
 const customFormatter: TooltipProps['formatter'] = (value, name) => [
   formatCurrency(Number(value ?? 0)),
@@ -220,6 +221,14 @@ export function CalculadoraGasolina() {
       {/* ── Resultados ── */}
       {resultado && (
         <>
+                  <ResultadoExportable 
+
+            id="resultado-prestamo"
+            nombreArchivo="calculadora-prestamos"
+            titulo="Calculadora de Préstamos"
+            mostrar={!!resultado}
+
+          >
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             <ResultCard
               label="Costo por viaje"
@@ -270,6 +279,7 @@ export function CalculadoraGasolina() {
               mejorando 20% el rendimiento (mantenimiento, presión de llantas, conducción eficiente)
             </p>
           </div>
+          </ResultadoExportable>
         </>
       )}
     </div>

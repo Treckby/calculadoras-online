@@ -12,6 +12,7 @@ import { formatCurrency, formatNumber } from '../../lib/utils'
 import { cn } from '../../lib/utils'
 import { TooltipProps } from 'recharts';
 import { RegistrarVisita } from '../../components/seo/RegistrarVisita'
+import { ResultadoExportable } from '../../components/ui/ResultadoExportable'
 
 const customFormatter: TooltipProps['formatter'] = (value) => [
   `${formatNumber(Number(value ?? 0))} kWh`,
@@ -242,6 +243,14 @@ export function CalculadoraElectricidad() {
       {/* ── Resultados ── */}
       {resultado && (
         <>
+                  <ResultadoExportable 
+
+            id="resultado-prestamo"
+            nombreArchivo="calculadora-prestamos"
+            titulo="Calculadora de Préstamos"
+            mostrar={!!resultado}
+
+          >
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             <ResultCard
               label="Costo mensual"
@@ -323,6 +332,7 @@ export function CalculadoraElectricidad() {
               </table>
             </div>
           </div>
+          </ResultadoExportable>
         </>
       )}
     </div>

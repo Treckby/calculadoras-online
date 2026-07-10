@@ -46,7 +46,9 @@ export function ResultadoExportable({
             </div>
           </div>
         )}
+        <div className="space-y-8">
         {children}
+        </div>
       </div>
     </div>
   )

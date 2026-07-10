@@ -8,6 +8,7 @@ import { calcularPorcentaje } from '../../lib/calculadoras/porcentaje'
 import { OperacionPorcentaje, PorcentajeResultado } from '../../types'
 import { formatNumber } from '../../lib/utils'
 import { cn } from '../../lib/utils'
+import { ResultadoExportable } from '../../components/ui/ResultadoExportable'
 
 const OPERACIONES: {
   value: OperacionPorcentaje
@@ -158,14 +159,23 @@ export function CalculadoraPorcentaje() {
       </div>
 
       {resultado && (
+                  <ResultadoExportable 
+
+            id="resultado-prestamo"
+            nombreArchivo="calculadora-prestamos"
+            titulo="Calculadora de Préstamos"
+            mostrar={!!resultado}
+
+          >
         <div className="space-y-4">
           <ResultCard
             label={resultado.descripcion}
             value={`${formatNumber(resultado.resultado)}${esPorcentaje ? '%' : ''}`}
             highlight
-            sublabel={resultado.formula}
+            sublabel={""+resultado}
           />
         </div>
+        </ResultadoExportable>
       )}
     </div>
   )

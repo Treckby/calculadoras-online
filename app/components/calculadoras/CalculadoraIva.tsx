@@ -8,6 +8,7 @@ import { calcularIva } from '../../lib/calculadoras/iva'
 import { IvaResultado, OperacionIva } from '../../types'
 import { formatCurrency } from '../../lib/utils'
 import { cn } from '../../lib/utils'
+import { ResultadoExportable } from '../../components/ui/ResultadoExportable'
 
 const OPERACIONES: { value: OperacionIva; label: string; desc: string }[] = [
   { value: 'agregar',   label: '➕ Agregar IVA',  desc: 'Tengo precio sin IVA' },
@@ -122,6 +123,14 @@ export function CalculadoraIva() {
 
       {/* Resultado */}
       {resultado && (
+                  <ResultadoExportable 
+
+            id="resultado-prestamo"
+            nombreArchivo="calculadora-prestamos"
+            titulo="Calculadora de Préstamos"
+            mostrar={!!resultado}
+
+          >
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <ResultCard
             label="Precio sin IVA"
@@ -140,6 +149,7 @@ export function CalculadoraIva() {
             sublabel="Total a pagar"
           />
         </div>
+        </ResultadoExportable>
       )}
     </div>
   )
