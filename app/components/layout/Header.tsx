@@ -20,7 +20,8 @@ export function Header() {
         </Link>
 
         {/* Nav — solo desktop */}
-        <nav className="hidden lg:flex items-center gap-5 text-sm text-slate-600 flex-1 justify-center">
+        {/*
+       <nav className="hidden lg:flex items-center gap-5 text-sm text-slate-600 flex-1 justify-center">
           <Link href="/calculadoras/prestamos"    className="hover:text-blue-600 transition-colors whitespace-nowrap">Préstamos</Link>
           <Link href="/calculadoras/ahorro"       className="hover:text-blue-600 transition-colors">Ahorro</Link>
           <Link href="/calculadoras/calorias"     className="hover:text-blue-600 transition-colors">Calorías</Link>
@@ -30,6 +31,12 @@ export function Header() {
           <Link href="/calculadoras/propina"      className="hover:text-blue-600 transition-colors">Propina</Link>
           <Link href="/calculadoras/descuento"    className="hover:text-blue-600 transition-colors">Descuentos</Link>
         </nav>
+        */
+        <nav className="hidden lg:flex  gap-5 text-sm text-slate-600 flex-1 ">
+          <Link href="/calculadoras/prestamos"    className="hover:text-blue-600 transition-colors whitespace-nowrap">Préstamos</Link>
+        </nav>
+        }
+ 
 
         {/* Buscador */}
         <Buscador />

@@ -172,7 +172,7 @@ export function CalculadoraPorcentaje() {
             label={resultado.descripcion}
             value={`${formatNumber(resultado.resultado)}${esPorcentaje ? '%' : ''}`}
             highlight
-            sublabel={""+resultado}
+            //sublabel={resultado.formula}
           />
         </div>
         </ResultadoExportable>
