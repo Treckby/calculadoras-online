@@ -8,6 +8,8 @@ import { calcularFechas, hoy } from '../../lib/calculadoras/fechas'
 import { FechasResultado } from '../../types'
 import { cn } from '../../lib/utils'
 import { ResultadoExportable } from '../../components/ui/ResultadoExportable'
+import { AccionesResultado }    from '../../components/ui/AccionesResultado'
+import { generarMensajeFechas } from '../../lib/whatsapp'
 
 const FECHAS_RAPIDAS = [
   { label: 'Año nuevo',       fecha: `${new Date().getFullYear() + 1}-01-01` },
@@ -85,14 +87,19 @@ export function CalculadoraFechas() {
       {/* Resultado */}
       {resultado && (
         <>
-                  <ResultadoExportable 
-
-            id="resultado-prestamo"
-            nombreArchivo="calculadora-prestamos"
-            titulo="Calculadora de Préstamos"
-            mostrar={!!resultado}
-
-          >
+            <AccionesResultado
+      mensaje={generarMensajeFechas({
+        fechaInicio: inicio,
+        fechaFin:    fin,
+        dias:        resultado.dias,
+        diasHabiles: resultado.diasHabiles,
+        semanas:     resultado.semanas,
+        esFuturo:    resultado.esFuturo,
+      })}
+      elementoId="resultado-fechas"
+      nombreArchivo="calculadora-fechas"
+    />
+<div className='space-y-8' id='calculadora-fechas'>
           {/* Banner */}
           <div className={cn(
             'rounded-2xl p-6 text-center text-white',
@@ -138,7 +145,7 @@ export function CalculadoraFechas() {
               ))}
             </div>
           </div>
-          </ResultadoExportable>
+          </div>
         </>
       )}
     </div>

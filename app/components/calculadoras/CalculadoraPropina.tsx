@@ -10,6 +10,8 @@ import { PropinaResultado } from '../../types'
 import { formatCurrency } from '../../lib/utils'
 import { cn } from '../../lib/utils'
 import { ResultadoExportable } from '../../components/ui/ResultadoExportable'
+import { AccionesResultado }    from '../../components/ui/AccionesResultado'
+import { generarMensajePropina } from '../../lib/whatsapp'
 
 const PORCENTAJES_RAPIDOS = [10, 15, 18, 20, 25]
 
@@ -120,14 +122,19 @@ export function CalculadoraPropina() {
       {/* Resultados */}
       {resultado && (
         <>
-                  <ResultadoExportable 
-
-            id="resultado-prestamo"
-            nombreArchivo="calculadora-prestamos"
-            titulo="Calculadora de Préstamos"
-            mostrar={!!resultado}
-
-          >
+            <AccionesResultado
+      mensaje={generarMensajePropina({
+        totalCuenta:     Number(cuenta),
+        porcentaje:      porcentaje,
+        montoPropina:    resultado.montoPropina,
+        totalConPropina: resultado.totalConPropina,
+        personas:        personas,
+        porPersona:      resultado.porPersona,
+      })}
+      elementoId="resultado-propina"
+      nombreArchivo="calculadora-propina"
+    />
+<div className='space-y-8' id='resultado-propina'>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <ResultCard
               label="Propina"
@@ -168,7 +175,7 @@ export function CalculadoraPropina() {
               </div>
             </div>
           )}
-          </ResultadoExportable>
+          </div>
         </>
       )}
     </div>

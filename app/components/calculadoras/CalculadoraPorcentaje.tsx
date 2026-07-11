@@ -9,6 +9,8 @@ import { OperacionPorcentaje, PorcentajeResultado } from '../../types'
 import { formatNumber } from '../../lib/utils'
 import { cn } from '../../lib/utils'
 import { ResultadoExportable } from '../../components/ui/ResultadoExportable'
+import { AccionesResultado }        from '../../components/ui/AccionesResultado'
+import { generarMensajePorcentaje } from '../../lib/whatsapp'
 
 const OPERACIONES: {
   value: OperacionPorcentaje
@@ -159,14 +161,17 @@ export function CalculadoraPorcentaje() {
       </div>
 
       {resultado && (
-                  <ResultadoExportable 
-
-            id="resultado-prestamo"
-            nombreArchivo="calculadora-prestamos"
-            titulo="Calculadora de Préstamos"
-            mostrar={!!resultado}
-
-          >
+        <>
+            <AccionesResultado
+      mensaje={generarMensajePorcentaje({
+        descripcion:  resultado.descripcion,
+        resultado:    resultado.resultado,
+        esPorcentaje: operacion === 'que_porcentaje' || operacion === 'variacion',
+      })}
+      elementoId="resultado-porcentaje"
+      nombreArchivo="calculadora-porcentaje"
+    />
+<div className='space-y.8' id='resultado-porcentaje'>
         <div className="space-y-4">
           <ResultCard
             label={resultado.descripcion}
@@ -175,7 +180,8 @@ export function CalculadoraPorcentaje() {
             //sublabel={resultado.formula}
           />
         </div>
-        </ResultadoExportable>
+        </div>
+        </>
       )}
     </div>
   )

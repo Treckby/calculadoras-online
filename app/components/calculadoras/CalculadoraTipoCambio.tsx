@@ -8,6 +8,8 @@ import { MONEDAS, Moneda, obtenerTasas } from '../../lib/calculadoras/tipoCambio
 import { formatNumber } from '../../lib/utils'
 import { cn } from '../../lib/utils'
 import { ResultadoExportable } from '../../components/ui/ResultadoExportable'
+import { AccionesResultado }        from '../../components/ui/AccionesResultado'
+import { generarMensajeTipoCambio } from '../../lib/whatsapp'
 
 export function CalculadoraTipoCambio() {
   const [monto, setMonto]         = useState('')
@@ -133,14 +135,19 @@ export function CalculadoraTipoCambio() {
 
       {/* Resultado */}
       {resultado !== null && tasa !== null && (
-          <ResultadoExportable 
-
-            id="resultado-prestamo"
-            nombreArchivo="calculadora-prestamos"
-            titulo="Calculadora de Préstamos"
-            mostrar={!!resultado}
-
-          >      
+        <>
+            <AccionesResultado
+      mensaje={generarMensajeTipoCambio({
+        monto:     Number(monto),
+        de:        de,
+        a:         a,
+        resultado: resultado,
+        tasa:      tasa,
+      })}
+      elementoId="resultado-tipo-cambio"
+      nombreArchivo="tipo-de-cambio"
+    />
+<div className='space-y-8' id='resultado-tipo-cambio'>
         <div className="bg-cyan-500 rounded-2xl p-8 text-white text-center">
           <p className="text-cyan-100 text-sm mb-1">
             {monedaDe.bandera} {formatNumber(Number(monto))} {de} equivale a
@@ -157,7 +164,8 @@ export function CalculadoraTipoCambio() {
             <span>Actualizado {actualizado}</span>
           </div>
         </div>
-        </ResultadoExportable>  
+        </div> 
+        </>
       )}
 
       {/* Mini tabla de referencia */}

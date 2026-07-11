@@ -16,6 +16,8 @@ import { cn } from '../../lib/utils'
 import { TooltipProps } from 'recharts';
 import { RegistrarVisita } from '../../components/seo/RegistrarVisita'
 import { ResultadoExportable } from '../../components/ui/ResultadoExportable'
+import { AccionesResultado }      from '../../components/ui/AccionesResultado'
+import { generarMensajeGasolina } from '../../lib/whatsapp'
 
 const customFormatter: TooltipProps['formatter'] = (value, name) => [
   formatCurrency(Number(value ?? 0)),
@@ -221,14 +223,20 @@ export function CalculadoraGasolina() {
       {/* ── Resultados ── */}
       {resultado && (
         <>
-                  <ResultadoExportable 
-
-            id="resultado-prestamo"
-            nombreArchivo="calculadora-prestamos"
-            titulo="Calculadora de Préstamos"
-            mostrar={!!resultado}
-
-          >
+            <AccionesResultado
+      mensaje={generarMensajeGasolina({
+        distanciaKm:    Number(form.distanciaKm),
+        rendimientoKml: Number(form.rendimientoKml),
+        tipoGasolina:   form.tipoGasolina,
+        costoViaje:     resultado.costoViaje,
+        costoMes:       resultado.costoMes,
+        costoAnual:     resultado.costoAnual,
+        litrosMes:      resultado.litrosMes,
+      })}
+      elementoId="resultado-gasolina"
+      nombreArchivo="calculadora-gasolina"
+    />
+<div className='space-y-8' id="resultado-gasolina">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             <ResultCard
               label="Costo por viaje"
@@ -279,7 +287,7 @@ export function CalculadoraGasolina() {
               mejorando 20% el rendimiento (mantenimiento, presión de llantas, conducción eficiente)
             </p>
           </div>
-          </ResultadoExportable>
+          </div>
         </>
       )}
     </div>

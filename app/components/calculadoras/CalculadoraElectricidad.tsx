@@ -13,6 +13,8 @@ import { cn } from '../../lib/utils'
 import { TooltipProps } from 'recharts';
 import { RegistrarVisita } from '../../components/seo/RegistrarVisita'
 import { ResultadoExportable } from '../../components/ui/ResultadoExportable'
+import { AccionesResultado }          from '../../components/ui/AccionesResultado'
+import { generarMensajeElectricidad } from '../../lib/whatsapp'
 
 const customFormatter: TooltipProps['formatter'] = (value) => [
   `${formatNumber(Number(value ?? 0))} kWh`,
@@ -243,14 +245,18 @@ export function CalculadoraElectricidad() {
       {/* ── Resultados ── */}
       {resultado && (
         <>
-                  <ResultadoExportable 
+            <AccionesResultado
+      mensaje={generarMensajeElectricidad({
+        totalKwhMes: resultado.totalKwhMes,
+        costoMes:    resultado.costoMes,
+        costoAnual:  resultado.costoAnual,
+        tarifaKwh:   Number(tarifaKwh),
+      })}
+      elementoId="resultado-electricidad"
+      nombreArchivo="consumo-electrico"
+    />
 
-            id="resultado-prestamo"
-            nombreArchivo="calculadora-prestamos"
-            titulo="Calculadora de Préstamos"
-            mostrar={!!resultado}
-
-          >
+<div className='space-y-8' id="resultado-electricidad">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             <ResultCard
               label="Costo mensual"
@@ -332,7 +338,7 @@ export function CalculadoraElectricidad() {
               </table>
             </div>
           </div>
-          </ResultadoExportable>
+        </div>
         </>
       )}
     </div>

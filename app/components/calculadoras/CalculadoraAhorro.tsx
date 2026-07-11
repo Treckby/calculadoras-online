@@ -14,6 +14,8 @@ import { formatCurrency, formatNumber } from '../../lib/utils'
 import { TooltipProps } from 'recharts';
 import { RegistrarVisita } from '../../components/seo/RegistrarVisita'
 import { ResultadoExportable } from '../../components/ui/ResultadoExportable'
+import { AccionesResultado } from '../../components/ui/AccionesResultado'
+import { generarMensajeAhorro } from '../../lib/whatsapp'
 
 const customFormatter: TooltipProps['formatter'] = (value, name) => [
   formatCurrency(Number(value)),
@@ -107,15 +109,21 @@ export function CalculadoraAhorro() {
       {/* Resultados */}
       {resultado && (
         <div >
-          <ResultadoExportable 
+          <AccionesResultado
+            mensaje={generarMensajeAhorro({
+              montoInicial: Number(form.montoInicial) || 0,
+              aporteMensual: Number(form.aporteMensual),
+              tasaAnual: Number(form.tasaAnual),
+              plazoAnios: Number(form.plazoAnios),
+              totalAhorrado: resultado.totalAhorrado,
+              totalIntereses: resultado.totalIntereses,
+            })}
+            elementoId="resultado-ahorro"
+            nombreArchivo="calculadora-ahorro"
+          />
+          <div id="resultado-ahorro" className='space-y-8'>
 
-            id="resultado-prestamo"
-            nombreArchivo="calculadora-prestamos"
-            titulo="Calculadora de Préstamos"
-            mostrar={!!resultado}
-
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4" >
               <ResultCard
                 label="Total ahorrado"
                 value={formatCurrency(resultado.totalAhorrado)}
@@ -189,7 +197,7 @@ export function CalculadoraAhorro() {
                 </table>
               </div>
             </div>
-          </ResultadoExportable>
+          </div>
         </div>
       )}
     </div>
