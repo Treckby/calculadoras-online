@@ -11,11 +11,11 @@ export const metadata: Metadata = {
     'conversor pdf', 'word a pdf', 'excel a pdf',
     'ppt a pdf', 'convertir documentos', 'herramienta online',
   ],
-  alternates: { canonical: 'https://tusitio.com/conversores/pdf' },
+  alternates: { canonical: 'ttps://calcopolis.netlify.app/conversores/pdf' },
   openGraph: {
     title: 'Conversor de Documentos a PDF',
     description: 'Convierte Word, Excel y PowerPoint a PDF en segundos.',
-    url: 'https://tusitio.com/conversores/pdf',
+    url: 'ttps://calcopolis.netlify.app/conversores/pdf',
     images: [{
       url: `/og?title=Conversor de Documentos a PDF&desc=Convierte Word, Excel y PowerPoint a PDF`,
       width: 1200,
@@ -30,7 +30,7 @@ export default function PdfPage() {
       <WebAppSchema
         name="Conversor de Documentos a PDF"
         description="Convierte tus archivos Word, Excel o PowerPoint a PDF fácilmente."
-        url="https://tusitio.com/conversores/pdf"
+        url="ttps://calcopolis.netlify.app/conversores/pdf"
       />
       <div className="max-w-5xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-2">
