@@ -16,6 +16,7 @@ import { RegistrarVisita } from '../../components/seo/RegistrarVisita'
 import { ResultadoExportable } from '../../components/ui/ResultadoExportable'
 import { AccionesResultado } from '../../components/ui/AccionesResultado'
 import { generarMensajeAhorro } from '../../lib/whatsapp'
+import { NumeroAnimado } from '../../components/ui/NumeroAnimado'
 
 const customFormatter: TooltipProps['formatter'] = (value, name) => [
   formatCurrency(Number(value)),
