@@ -13,6 +13,7 @@ import { RegistrarVisita } from '../../components/seo/RegistrarVisita'
 import { ResultadoExportable } from '../../components/ui/ResultadoExportable'
 import { AccionesResultado }      from '../../components/ui/AccionesResultado'
 import { generarMensajeCalorias } from '../../lib/whatsapp'
+import { Breadcrumbs } from '../../components/layout/Breadcrumbs'
 
 const customFormatter: TooltipProps['formatter'] = (value, name) => [
   `${value ?? 0}g`,
@@ -84,6 +85,7 @@ export function CalculadoraCalorias() {
 
   return (
     <div className="space-y-8">
+      <Breadcrumbs pagina='calculadora de calorias'></Breadcrumbs>
       <RegistrarVisita pagina="calculadora-calorias" />
       {/* Formulario */}
       <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-6">

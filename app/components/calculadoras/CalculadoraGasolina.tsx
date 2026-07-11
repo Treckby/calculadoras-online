@@ -18,6 +18,7 @@ import { RegistrarVisita } from '../../components/seo/RegistrarVisita'
 import { ResultadoExportable } from '../../components/ui/ResultadoExportable'
 import { AccionesResultado }      from '../../components/ui/AccionesResultado'
 import { generarMensajeGasolina } from '../../lib/whatsapp'
+import { Breadcrumbs } from '../layout/Breadcrumbs'
 
 const customFormatter: TooltipProps['formatter'] = (value, name) => [
   formatCurrency(Number(value ?? 0)),
@@ -102,6 +103,7 @@ export function CalculadoraGasolina() {
 
   return (
     <div className="space-y-8">
+      <Breadcrumbs pagina='calculadora de gasolina'></Breadcrumbs>
 <RegistrarVisita pagina="calculadora-gasolina" />
       {/* ── Formulario ── */}
       <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-6">

@@ -15,6 +15,7 @@ import { RegistrarVisita } from '../../components/seo/RegistrarVisita'
 import { ResultadoExportable } from '../../components/ui/ResultadoExportable'
 import { AccionesResultado }          from '../../components/ui/AccionesResultado'
 import { generarMensajeElectricidad } from '../../lib/whatsapp'
+import { Breadcrumbs } from '../../components/layout/Breadcrumbs'
 
 const customFormatter: TooltipProps['formatter'] = (value) => [
   `${formatNumber(Number(value ?? 0))} kWh`,
@@ -96,6 +97,7 @@ export function CalculadoraElectricidad() {
 
   return (
     <div className="space-y-8">
+      <Breadcrumbs pagina='calculadora de electricidad'></Breadcrumbs>
       <RegistrarVisita pagina="calculadora-electricidad" />
 
       {/* ── Tarifa CFE ── */}

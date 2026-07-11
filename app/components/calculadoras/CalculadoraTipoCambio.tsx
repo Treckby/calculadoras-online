@@ -10,6 +10,7 @@ import { cn } from '../../lib/utils'
 import { ResultadoExportable } from '../../components/ui/ResultadoExportable'
 import { AccionesResultado }        from '../../components/ui/AccionesResultado'
 import { generarMensajeTipoCambio } from '../../lib/whatsapp'
+import { Breadcrumbs } from '../layout/Breadcrumbs'
 
 export function CalculadoraTipoCambio() {
   const [monto, setMonto]         = useState('')
@@ -51,6 +52,7 @@ export function CalculadoraTipoCambio() {
 
   return (
     <div className="space-y-8">
+      <Breadcrumbs pagina='calculadora de tipo de cambio'></Breadcrumbs>
       <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-6">
 
         {/* Monto */}

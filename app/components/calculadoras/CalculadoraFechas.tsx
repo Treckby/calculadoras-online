@@ -10,6 +10,7 @@ import { cn } from '../../lib/utils'
 import { ResultadoExportable } from '../../components/ui/ResultadoExportable'
 import { AccionesResultado }    from '../../components/ui/AccionesResultado'
 import { generarMensajeFechas } from '../../lib/whatsapp'
+import { Breadcrumbs } from '../../components/layout/Breadcrumbs'
 
 const FECHAS_RAPIDAS = [
   { label: 'Año nuevo',       fecha: `${new Date().getFullYear() + 1}-01-01` },
@@ -32,6 +33,7 @@ export function CalculadoraFechas() {
 
   return (
     <div className="space-y-8">
+      <Breadcrumbs pagina='calculadora de fechas'></Breadcrumbs>
       <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-6">
 
         {/* Inputs de fecha */}

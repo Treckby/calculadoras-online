@@ -17,6 +17,7 @@ import { ResultadoExportable } from '../../components/ui/ResultadoExportable'
 import { AccionesResultado } from '../../components/ui/AccionesResultado'
 import { generarMensajeAhorro } from '../../lib/whatsapp'
 import { NumeroAnimado } from '../../components/ui/NumeroAnimado'
+import { Breadcrumbs } from '../../components/layout/Breadcrumbs'
 
 const customFormatter: TooltipProps['formatter'] = (value, name) => [
   formatCurrency(Number(value)),
@@ -61,6 +62,7 @@ export function CalculadoraAhorro() {
   return (
     <div className="space-y-8">
       <RegistrarVisita pagina="calculadora-ahorro" />
+      <Breadcrumbs pagina='calculadora de ahorro'></Breadcrumbs>
       {/* Formulario */}
       <div className="bg-white rounded-2xl border border-slate-200 p-6">
         <h2 className="font-bold text-slate-800 text-lg mb-6">Datos del ahorro</h2>

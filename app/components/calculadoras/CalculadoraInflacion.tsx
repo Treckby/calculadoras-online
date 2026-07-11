@@ -12,6 +12,7 @@ import { ResultadoExportable } from '../../components/ui/ResultadoExportable'
 import { TooltipProps } from 'recharts';
 import { AccionesResultado } from '../../components/ui/AccionesResultado'
 import { generarMensajeInflacion } from '../../lib/whatsapp'
+import { Breadcrumbs } from '../layout/Breadcrumbs'
 
 
 const TASAS_REFERENCIA = [
@@ -57,6 +58,7 @@ export function CalculadoraInflacion() {
 
   return (
     <div className="space-y-8">
+      <Breadcrumbs pagina='calculadora de inflacion'></Breadcrumbs>
       <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-6">
 
         {/* Tasas de referencia */}

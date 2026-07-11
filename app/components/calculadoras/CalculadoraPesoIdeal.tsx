@@ -10,6 +10,7 @@ import { cn } from '../../lib/utils'
 import { ResultadoExportable } from '../../components/ui/ResultadoExportable'
 import { AccionesResultado }       from '../../components/ui/AccionesResultado'
 import { generarMensajePesoIdeal } from '../../lib/whatsapp'
+import { Breadcrumbs } from '../layout/Breadcrumbs'
 
 export function CalculadoraPesoIdeal() {
   const [form, setForm] = useState({
@@ -50,6 +51,7 @@ export function CalculadoraPesoIdeal() {
 
   return (
     <div className="space-y-8">
+      <Breadcrumbs pagina='calculadora de peso ideal'></Breadcrumbs>
       <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-6">
 
         {/* Sexo */}

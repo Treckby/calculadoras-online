@@ -12,6 +12,7 @@ import { cn } from '../../lib/utils'
 import { ResultadoExportable } from '../../components/ui/ResultadoExportable'
 import { AccionesResultado }    from '../../components/ui/AccionesResultado'
 import { generarMensajePropina } from '../../lib/whatsapp'
+import { Breadcrumbs } from '../layout/Breadcrumbs'
 
 const PORCENTAJES_RAPIDOS = [10, 15, 18, 20, 25]
 
@@ -39,6 +40,7 @@ export function CalculadoraPropina() {
 
   return (
     <div className="space-y-8">
+      <Breadcrumbs pagina='calculadora de propina'></Breadcrumbs>
       <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-6">
 
         {/* Total cuenta */}

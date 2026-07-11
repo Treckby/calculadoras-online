@@ -11,6 +11,7 @@ import { cn } from '../../lib/utils'
 import { ResultadoExportable } from '../../components/ui/ResultadoExportable'
 import { AccionesResultado } from '../../components/ui/AccionesResultado'
 import { generarMensajeIva } from '../../lib/whatsapp'
+import { Breadcrumbs } from '../layout/Breadcrumbs'
 
 const OPERACIONES: { value: OperacionIva; label: string; desc: string }[] = [
   { value: 'agregar',   label: '➕ Agregar IVA',  desc: 'Tengo precio sin IVA' },
@@ -46,6 +47,7 @@ export function CalculadoraIva() {
 
   return (
     <div className="space-y-8">
+      <Breadcrumbs pagina='calculadora de iva'></Breadcrumbs>
       <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-6">
         <h2 className="font-bold text-slate-800 text-lg">¿Qué quieres hacer?</h2>
 

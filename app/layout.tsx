@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { Header } from './components/layout/Header'
 import Script from 'next/script'
+import { CalcFlotante } from './components/layout/CalcFlotante'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -68,6 +69,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </head>
   
         <main>{children}</main>
+        <CalcFlotante />
         <footer className="text-center py-8 text-sm text-slate-400 border-t border-slate-200 mt-16">
           © {new Date().getFullYear()} CalcFácil — Calculadoras gratuitas en español
         </footer>

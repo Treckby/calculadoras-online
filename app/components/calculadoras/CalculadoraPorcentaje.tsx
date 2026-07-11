@@ -11,6 +11,7 @@ import { cn } from '../../lib/utils'
 import { ResultadoExportable } from '../../components/ui/ResultadoExportable'
 import { AccionesResultado }        from '../../components/ui/AccionesResultado'
 import { generarMensajePorcentaje } from '../../lib/whatsapp'
+import { Breadcrumbs } from '../layout/Breadcrumbs'
 
 const OPERACIONES: {
   value: OperacionPorcentaje
@@ -110,6 +111,7 @@ export function CalculadoraPorcentaje() {
 
   return (
     <div className="space-y-8">
+      <Breadcrumbs pagina='calculadora de porcentaje'></Breadcrumbs>
       <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-6">
 
         {/* Selector de operación */}

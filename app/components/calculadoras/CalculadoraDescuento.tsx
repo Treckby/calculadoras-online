@@ -12,6 +12,7 @@ import { cn } from '../../lib/utils'
 import { ResultadoExportable } from '../../components/ui/ResultadoExportable'
 import { AccionesResultado }       from '../../components/ui/AccionesResultado'
 import { generarMensajeDescuento } from '../../lib/whatsapp'
+import { Breadcrumbs } from '../../components/layout/Breadcrumbs'
 
 const DESCUENTOS_RAPIDOS = [5, 10, 15, 20, 25, 30, 50, 70]
 
@@ -43,6 +44,7 @@ export function CalculadoraDescuento() {
 
   return (
     <div className="space-y-8">
+      <Breadcrumbs pagina='calculadora de descuentos'></Breadcrumbs>
       <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-6">
 
         {/* Tipo de descuento */}

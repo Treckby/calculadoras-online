@@ -13,6 +13,7 @@ import { RegistrarVisita } from '../../components/seo/RegistrarVisita'
 import { ResultadoExportable } from '../../components/ui/ResultadoExportable'
 import { AccionesResultado }      from '../../components/ui/AccionesResultado'
 import { generarMensajePrestamo } from '../../lib/whatsapp'
+import { Breadcrumbs } from '../layout/Breadcrumbs'
 
 const customFormatter: TooltipProps['formatter'] = (value) =>
   formatCurrency(Number(value ?? 0));
@@ -53,6 +54,7 @@ export function CalculadoraPrestamo() {
 
   return (
     <div className="space-y-8">
+      <Breadcrumbs pagina='calculadora de prestamos'></Breadcrumbs>
       <RegistrarVisita pagina="calculadora-prestamos" />
       {/* Formulario */}
       <div className="bg-white rounded-2xl border border-slate-200 p-6">
