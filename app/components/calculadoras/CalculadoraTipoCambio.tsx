@@ -11,6 +11,7 @@ import { ResultadoExportable } from '../../components/ui/ResultadoExportable'
 import { AccionesResultado }        from '../../components/ui/AccionesResultado'
 import { generarMensajeTipoCambio } from '../../lib/whatsapp'
 import { Breadcrumbs } from '../layout/Breadcrumbs'
+import { ResultadoSkeleton } from '../ui/Skeleton'
 
 export function CalculadoraTipoCambio() {
   const [monto, setMonto]         = useState('')
@@ -127,6 +128,7 @@ export function CalculadoraTipoCambio() {
           disabled={loading}
           className="w-full sm:w-auto bg-cyan-500 hover:bg-cyan-600"
         >
+          {loading && <ResultadoSkeleton />}
           {loading ? (
             <span className="flex items-center gap-2">
               <RefreshCw className="w-4 h-4 animate-spin" /> Obteniendo tasa...

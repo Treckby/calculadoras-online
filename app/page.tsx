@@ -17,8 +17,13 @@ const DESTACADAS = [
 const calcDestacadas = CALCULADORAS.filter((c) =>
   DESTACADAS.some((d) => c.href.includes(d.replace('calculadora-', '')))
 )
+/*
 const calcResto = CALCULADORAS.filter((c) =>
   !DESTACADAS.some((d) => c.href.includes(d.replace('calculadora-', '')))
+)
+*/
+const calcResto = CALCULADORAS.filter((c) =>
+  !DESTACADAS.includes(c.href)
 )
 
 export default function Home() {

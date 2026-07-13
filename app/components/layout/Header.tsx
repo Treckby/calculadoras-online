@@ -32,9 +32,7 @@ export function Header() {
           <Link href="/calculadoras/descuento"    className="hover:text-blue-600 transition-colors">Descuentos</Link>
         </nav>
         */
-        <nav className="hidden lg:flex  gap-5 text-sm text-slate-600 flex-1 ">
-          <Link href="/calculadoras/prestamos"    className="hover:text-blue-600 transition-colors whitespace-nowrap">Préstamos</Link>
-        </nav>
+     
         }
  
 
