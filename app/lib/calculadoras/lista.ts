@@ -2,7 +2,7 @@ import {
   Landmark, PiggyBank, Apple, Zap, Fuel,
   Receipt, UtensilsCrossed, Tag,
   Percent, DollarSign, CalendarDays, Scale, TrendingUp,
-  LucideIcon
+  LucideIcon,Droplets, Moon, Briefcase
 } from 'lucide-react'
 
 export interface Calculadora {
@@ -132,5 +132,32 @@ export const CALCULADORAS: Calculadora[] = [
   color:       'text-amber-600',
   bgColor:     'bg-amber-50',
   tags:        ['inflacion', 'poder adquisitivo', 'valor dinero', 'precios', 'costo vida'],
+},
+{
+  title:       'Calculadora de Finiquito',
+  description: 'Calcula tu finiquito o liquidación según la Ley Federal del Trabajo.',
+  href:        '/calculadoras/finiquito',
+  icon:        Briefcase,
+  color:       'text-blue-600',
+  bgColor:     'bg-blue-50',
+  tags:        ['finiquito', 'liquidacion', 'lft', 'aguinaldo', 'vacaciones', 'despido', 'renuncia'],
+},
+{
+  title:       'Calculadora de Hidratación',
+  description: 'Cuánta agua debes tomar al día según tu peso, actividad y clima.',
+  href:        '/calculadoras/hidratacion',
+  icon:        Droplets,
+  color:       'text-cyan-600',
+  bgColor:     'bg-cyan-50',
+  tags:        ['hidratacion', 'agua', 'litros', 'beber', 'salud'],
+},
+{
+  title:       'Calculadora de Sueño',
+  description: 'Horarios óptimos para dormir y despertar según ciclos de sueño de 90 min.',
+  href:        '/calculadoras/sueno',
+  icon:        Moon,
+  color:       'text-indigo-600',
+  bgColor:     'bg-indigo-50',
+  tags:        ['sueno', 'dormir', 'despertar', 'ciclos', 'descanso', 'hora dormir'],
 },
 ]
