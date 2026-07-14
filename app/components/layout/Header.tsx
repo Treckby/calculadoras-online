@@ -18,6 +18,9 @@ export function Header() {
           </div>
           <span className="hidden sm:inline">CalcFácil</span>
         </Link>
+        <Link href="/conversores" className="hover:text-blue-600 transition-colors">
+  Conversores
+</Link>
 
         {/* Nav — solo desktop */}
         {/*

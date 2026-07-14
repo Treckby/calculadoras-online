@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import { Search, X, ArrowRight } from 'lucide-react'
-import { CALCULADORAS } from '../../lib/calculadoras/lista'
+import { CALCULADORAS,CONVERSORES_LISTA } from '../../lib/calculadoras/lista'
 import { cn } from '../../lib/utils'
 
 export function Buscador() {
@@ -12,18 +12,18 @@ export function Buscador() {
   const [seleccion, setSeleccion] = useState(0)
   const inputRef                = useRef<HTMLInputElement>(null)
   const router                  = useRouter()
-
+const TODOS = [...CALCULADORAS, ...CONVERSORES_LISTA]
   // Filtrar calculadoras según el query
-  const resultados = query.trim() === ''
-    ? CALCULADORAS
-    : CALCULADORAS.filter((c) => {
-        const q = query.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-        const texto = `${c.title} ${c.description} ${c.tags.join(' ')}`
-          .toLowerCase()
-          .normalize('NFD')
-          .replace(/[\u0300-\u036f]/g, '')
-        return texto.includes(q)
-      })
+const resultados = query.trim() === ''
+  ? TODOS
+  : TODOS.filter((c) => {
+      const q = query.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      const texto = `${c.title} ${c.description} ${c.tags.join(' ')}`
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+      return texto.includes(q)
+    })
 
   // Abrir con Ctrl+K o Cmd+K
   useEffect(() => {
