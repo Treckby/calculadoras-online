@@ -4,21 +4,25 @@ import { ConversorUniversal } from '../../components/conversores/ConversorUniver
 import { RegistrarVisita }   from '../../components/seo/RegistrarVisita'
 import { Breadcrumbs }       from '../../components/layout/Breadcrumbs'
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
   return CONVERSORES.map((c) => ({ id: c.id }))
 }
 
-export function generateMetadata({ params }: { params: { id: string } }) {
-  const conv = CONVERSORES.find((c) => c.id === params.id)
-  if (!conv) return {}
+
+export async function generateMetadata({ params }: { params: { id: string } }) {
+  const { id } = await params
+  const conv = CONVERSORES.find((c) => c.id === id)
+  if (!conv) notFound()
   return {
-    title:       `Conversor de ${conv.titulo}`,
-    description: `Convierte entre ${Object.values(conv.unidades).map((u) => u.label).join(', ')} al instante.`,
+    title: `Conversor de ${conv.titulo}`,
+    description: `Convierte entre ${Object.values(conv.unidades)
+      .map((u) => u.label)
+      .join(', ')} al instante.`,
   }
 }
-
-export default function ConversorPage({ params }: { params: { id: string } }) {
-  const conv = CONVERSORES.find((c) => c.id === params.id)
+export default async function ConversorPage({ params }: { params: { id: string } }) {
+  const { id } = await params
+  const conv = CONVERSORES.find((c) => c.id === id)
   if (!conv) notFound()
 
   return (
