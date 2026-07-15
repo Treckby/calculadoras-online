@@ -21,6 +21,9 @@ export function Header() {
         <Link href="/conversores" className="hover:text-blue-950 transition-colors text-blue-500">
   Conversores
 </Link>
+<Link href="/herramientas" className="hover:text-blue-600 transition-colors">
+  Herramientas
+</Link>
 
         {/* Nav — solo desktop */}
         {/*
