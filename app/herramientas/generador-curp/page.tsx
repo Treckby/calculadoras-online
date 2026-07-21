@@ -136,7 +136,7 @@ export default function GeneradorCURPPage() {
               onClick={generar}
               className="w-full py-3 bg-rose-500 hover:bg-rose-600 text-white font-bold rounded-xl transition-all"
             >
-              Generar CURP
+              Generar CURP.
             </button>
           </div>
 
